@@ -1,0 +1,182 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Senac restaurante</title>
+    <link rel="stylesheet" href="assets/css/pages/cardapio/style.css">
+</head>
+
+<body>
+<main>
+    <!-- Desktop Header (shown only on desktop) -->
+    <div class="desktop-header" style="display: none;">
+        <div class="desktop-logo">RESTAURANTE SENAC</div>
+        <div class="cart-summary">
+            <span class="cart-icon">🛒</span>
+            <span class="cart-count">0</span>
+            <span class="cart-total">R$ 0,00</span>
+        </div>
+    </div>
+
+    <!-- Main App Container -->
+    <div class="app-container">
+        <!-- Menu Page -->
+        <div class="page active" id="menu-page">
+            <!-- Search Bar -->
+            <div class="search-container">
+                <div class="search-bar">
+                    <span class="search-icon">🔍</span>
+                    <input type="text" placeholder="Buscar no cardápio" class="search-input">
+                </div>
+            </div>
+
+            <!-- Hero Section -->
+            <div class="hero-section">
+                <div class="hero-image">
+                    <div class="logo-container">
+                        <div class="logo">
+                            <span class="logo-text">SENAC</span>
+                            <span class="logo-subtext">RESTAURANTE</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Restaurant Info -->
+            <div class="restaurant-info">
+                <h1 class="restaurant-name">SENAC PASTEL, PIZZA E SUSHI</h1>
+                <span class="table-info">Mesa 6</span>
+                <p class="payment-info">Ver formas de pagamento</p>
+            </div>
+
+            <!-- Navigation Tabs -->
+            <div class="nav-tabs">
+                <button class="tab-button active" data-tab="entradas">ENTRADAS</button>
+                <button class="tab-button" data-tab="belem">BELÉM EM DOBRO</button>
+                <button class="tab-button" data-tab="pasteis">PASTÉIS DELÍCIO</button>
+            </div>
+
+            <!-- Menu Content -->
+            <div class="menu-content" id="menu">
+              <h2 class="section-title"></h2>
+
+                <div class="menu-items">
+                    <div class="menu-item" data-item-id="1">
+                        <div class="top-info">
+                        <div class="item-info">
+                            <h3 class="item-name">Camarão empanado com fritas</h3>
+                            <p class="item-description">10 Camarões deliciosos empanados, acompanhados de uma porção generosa de batata frita crocante. Servido com molho especial da casa.</p>
+                            <span class="item-price" data-price="48.50">R$ 48,50</span>
+                            </div>
+                            <div class="item-image">
+                            <img src="https://images.unsplash.com/photo-1565299624946-b28f40a0ca4b?w=300&h=200&fit=crop" alt="Camarão empanado com fritas">
+                            </div>
+                        </div>
+                        <button class="add-to-cart-btn">Adicionar</button>
+                    </div>
+
+                    <div class="menu-item" data-item-id="2">
+                        <div class="top-info">
+                        <div class="item-info">
+                            <h3 class="item-name">Calabresa acebolada com batata frita</h3>
+                            <p class="item-description">Deliciosa calabresa acebolada acompanhada de batata frita crocante. Um clássico da culinária brasileira preparado com ingredientes frescos.</p>
+                            <span class="item-price" data-price="28.50">R$ 28,50</span>
+                        </div>
+                        <div class="item-image">
+                            <img src="https://images.unsplash.com/photo-1546833999-b9f581a1996d?w=300&h=200&fit=crop" alt="Calabresa acebolada">
+                        </div>
+                        </div>
+                        <button class="add-to-cart-btn">Adicionar</button>
+                       </div>
+
+                    <div class="menu-item" data-item-id="3">
+                        <div class="top-info">
+                        <div class="item-info">
+                            <h3 class="item-name">Iscas de Filé mignon com Batata Frita</h3>
+                            <p class="item-description">200g de filé mignon acebolado acompanhado de 250g de batata frita. Carne macia e suculenta preparada no ponto ideal.</p>
+                            <span class="item-price" data-price="48.50">R$ 48,50</span>
+                        </div>
+                        <div class="item-image">
+                            <img src="https://images.unsplash.com/photo-1558030006-450675393462?w=300&h=200&fit=crop" alt="Iscas de Filé mignon">
+                        </div>
+                        </div>
+                        <button class="add-to-cart-btn">Adicionar</button>
+                        
+                    </div>
+
+                    <div class="menu-item" data-item-id="4">
+                        <div class="top-info" >
+                        <div class="item-info">
+                            <h3 class="item-name">Porção de Batata Frita</h3>
+                            <p class="item-description">Porção generosa de batata frita crocante por fora e macia por dentro. Perfeita para compartilhar ou como acompanhamento.</p>
+                            <span class="item-price" data-price="18.90">R$ 18,90</span>
+                        </div>
+                        <div class="item-image">
+                            <img src="https://images.unsplash.com/photo-1573080496219-bb080dd4f877?w=300&h=200&fit=crop" alt="Porção de Batata Frita">
+                        </div>
+                        </div>
+                        <button class="add-to-cart-btn">Adicionar</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Orders Page -->
+        <div class="page" id="orders-page">
+            <div class="orders-header">
+                <h2>Seus Pedidos</h2>
+                <button class="back-to-menu-btn">← Voltar ao Cardápio</button>
+            </div>
+            
+            <div class="cart-container">
+                <div class="cart-items" id="cart-items">
+                    <div class="empty-cart">
+                        <span class="empty-cart-icon">🛒</span>
+                        <h3>Seu carrinho está vazio</h3>
+                        <p>Adicione itens do cardápio para começar seu pedido</p>
+                    </div>
+                </div>
+                
+                <div class="cart-summary-section" id="cart-summary-section" style="display: none;">
+                    <div class="summary-row">
+                        <span>Subtotal:</span>
+                        <span id="subtotal">R$ 0,00</span>
+                    </div>
+                   <!-- <div class="summary-row">
+                        <span>Taxa de entrega:</span>
+                        <span>R$ 5,00</span>
+                    </div> -->
+                    <div class="summary-row total">
+                        <span>Total:</span>
+                        <span id="total">R$ 5,00</span>
+                    </div>
+                    <button class="checkout-btn">Finalizar Pedido</button>
+                </div>
+            </div>
+        </div>
+
+        <!-- Bottom Navigation -->
+        <div class="bottom-nav">
+            <div class="nav-item active" data-page="menu">
+                <span class="nav-icon">🏠</span>
+                <span class="nav-label">Home</span>
+            </div>
+            <div class="nav-item" data-page="orders">
+                <span class="nav-icon">📋</span>
+                <span class="nav-label">Comanda</span>
+                <span class="cart-badge" id="cart-badge" style="display: flex;">0</span>
+            </div>
+        </div>
+    </div>
+
+    <!-- Toast Notification -->
+    <div class="toast" id="toast">
+        <span class="toast-message"></span>
+    </div>
+
+    <script type="module" src="assets/js/pages/cardapio/script.js"></script>
+</body>
+
+</html>

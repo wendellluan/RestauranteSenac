@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Tela de Login</title>
+  <link rel="stylesheet" href="assets/css/pages/index/index.css">
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;500;700;800&display=swap" rel="stylesheet">
+<body>
+  <main class="phone">
+    <header>
+      <h1>Restaurante senac</h1>
+      
+    </header>
+    <form id="formCadastro">
+      <div>
+          <label for="nomeInputCadastro">Nome</label>
+          <input id="nomeInputCadastro" class="field" type="text" name="text" placeholder="Digite seu nome" required>
+          <small id="nomeErro" class="erro"></small>
+      </div>
+
+      <div>
+          <label for="mesalInputCadastro">Número de pessoas na mesa </label>
+          <select class="selectForm">
+            <option class="optionForm">1</option>
+            <option class="optionForm">2</option>
+            <option class="optionForm">3</option>
+            <option class="optionForm">4</option>
+            <option class="optionForm">5</option>
+            
+          </select>
+      </div>
+        <button id="btnCadastrar" class="primario" type="submit" href="cardapio.html" >Entrar</button>
+      </form>
+      <div class="semLogin">
+        <a class="sub" href="login.html">página do admin</a>
+      </div>
+  </main>
+
+  <script type="module" src="assets/js/pages/index copy/validation.js"></script>
+</body>
+</html>

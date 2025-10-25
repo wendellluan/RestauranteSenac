@@ -1,0 +1,236 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Sistema Administrativo de Cozinha</title>
+    <link rel="stylesheet" href="assets/css/pages/adm/style.css">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;500;700;800&display=swap" rel="stylesheet">
+</head>
+
+<body>
+    <!-- Navbar -->
+    <nav class="navbar">
+        <div class="nav-container">
+            <div class="nav-logo">
+                <i class="fas fa-utensils"></i>
+                <span>Restaurante Senac</span>
+            </div>
+            <div class="nav-menu" id="nav-menu">
+                <a href="#" class="nav-link active" data-section="tables">
+                    <i class="fas fa-table"></i>
+                    <span>Mesas</span>
+                </a>
+                <a href="#" class="nav-link" data-section="orders">
+                    <i class="fas fa-clipboard-list"></i>
+                    <span>Pedidos</span>
+                </a>
+                <a href="#" class="nav-link" data-section="menu">
+                    <i class="fas fa-book-open"></i>
+                    <span>Cardápio</span>
+                </a>
+                <a href="#" class="nav-link" data-section="history">
+                    <i class="fas fa-history"></i>
+                    <span>Histórico</span>
+                </a>
+                <a href="#" class="nav-link" data-section="admin">
+                    <i class="fas fa-users-cog"></i>
+                    <span>Admin</span>
+                </a>
+            </div>
+            <div class="nav-toggle" id="nav-toggle">
+                <span class="bar"></span>
+                <span class="bar"></span>
+                <span class="bar"></span>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Main Content -->
+    <main class="main-content">
+        <!-- Gerenciamento de Mesas -->
+        <section id="tables-section" class="section active">
+            <div class="section-header">
+                <h2><i class="fas fa-table"></i> Gerenciamento de Mesas</h2>
+                <button class="btn btn-primary" id="add-table-btn">
+                    <i class="fas fa-plus"></i> Nova Mesa
+                </button>
+            </div>
+            <div class="tables-grid" id="tables-grid">
+                <!-- Mesas serão inseridas aqui dinamicamente -->
+            </div>
+        </section>
+
+        <!-- Área de Pedidos -->
+        <section id="orders-section" class="section">
+            <div class="section-header">
+                <h2><i class="fas fa-clipboard-list"></i> Área de Pedidos</h2>
+                <div class="orders-stats">
+                    <span class="stat pending">Pendentes: <span id="pending-count">0</span></span>
+                    <span class="stat preparing">Em Preparo: <span id="preparing-count">0</span></span>
+                </div>
+            </div>
+            <div class="orders-grid" id="orders-grid">
+                <!-- Pedidos serão inseridos aqui dinamicamente -->
+            </div>
+        </section>
+
+        <!-- Gerenciamento de Cardápio -->
+        <section id="menu-section" class="section">
+            <div class="section-header">
+                <h2><i class="fas fa-book-open"></i> Gerenciamento de Cardápio</h2>
+                <button class="btn btn-primary" id="add-menu-item-btn">
+                    <i class="fas fa-plus"></i> Novo Prato
+                </button>
+            </div>
+            <div class="menu-grid" id="menu-grid">
+                <!-- Itens do cardápio serão inseridos aqui dinamicamente -->
+            </div>
+        </section>
+
+        <!-- Histórico -->
+        <section id="history-section" class="section">
+            <div class="section-header">
+                <h2><i class="fas fa-history"></i> Histórico de Pagamentos</h2>
+                <div class="history-controls">
+                    <div class="total-counter">
+                        <span>Total Arrecadado: R$ <span id="total-amount">0,00</span></span>
+                    </div>
+                    <button class="btn btn-danger" id="clear-history-btn">
+                        <i class="fas fa-trash"></i> Limpar Histórico
+                    </button>
+                </div>
+            </div>
+            <div class="history-list" id="history-list">
+                <!-- Histórico será inserido aqui dinamicamente -->
+            </div>
+        </section>
+
+        <!-- Gerenciamento de Contas Admin -->
+        <section id="admin-section" class="section">
+            <div class="section-header">
+                <h2><i class="fas fa-users-cog"></i> Gerenciamento de Contas Admin</h2>
+                <button class="btn btn-primary" id="add-admin-btn">
+                    <i class="fas fa-user-plus"></i> Nova Conta
+                </button>
+            </div>
+            <div class="admin-list" id="admin-list">
+                <!-- Contas admin serão inseridas aqui dinamicamente -->
+            </div>
+        </section>
+    </main>
+
+    <!-- Modals -->
+    <div class="modal" id="table-modal">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h3 id="table-modal-title">Nova Mesa</h3>
+                <span class="close" id="close-table-modal">&times;</span>
+            </div>
+            <form id="table-form">
+                <div class="form-group">
+                    <label for="table-number">Número da Mesa:</label>
+                    <input type="number" id="table-number" required>
+                </div>
+                <div class="form-group">
+                    <label for="customer-name">Nome do Cliente:</label>
+                    <input type="text" id="customer-name">
+                </div>
+                <div class="form-group">
+                    <label for="people-count">Número de Pessoas:</label>
+                    <input type="number" id="people-count" min="0">
+                </div>
+                <div class="form-group">
+                    <label for="table-status">Status da Mesa:</label>
+                    <select id="table-status">
+                        <option value="livre">Livre</option>
+                        <option value="ocupado">Ocupado</option>
+                    </select>
+                </div>
+                <div class="modal-actions">
+                    <button type="button" class="btn btn-secondary" id="cancel-table">Cancelar</button>
+                    <button type="submit" class="btn btn-primary">Salvar</button>
+                    <button type="button" class="btn btn-danger" id="delete-table" style="display: none;">Excluir</button>
+                </div>
+            </form>
+        </div>
+    </div>
+
+    <div class="modal" id="menu-modal">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h3 id="menu-modal-title">Novo Prato</h3>
+                <span class="close" id="close-menu-modal">&times;</span>
+            </div>
+            <form id="menu-form">
+                <div class="form-group">
+                    <label for="dish-name">Nome do Prato:</label>
+                    <input type="text" id="dish-name" required>
+                </div>
+                <div class="form-group">
+                    <label for="dish-description">Descrição:</label>
+                    <textarea id="dish-description" rows="3"></textarea>
+                </div>
+                <div class="form-group">
+                    <label for="dish-image">Imagem:</label>
+                    <input type="file" id="dish-image" accept="image/*">
+                    <div class="image-preview" id="image-preview"></div>
+                </div>
+                <div class="form-group">
+                    <label for="dish-price">Preço (R$):</label>
+                    <input type="number" id="dish-price" step="0.01" min="0" required>
+                </div>
+                <div class="modal-actions">
+                    <button type="button" class="btn btn-secondary" id="cancel-menu">Cancelar</button>
+                    <button type="submit" class="btn btn-primary">Salvar</button>
+                    <button type="button" class="btn btn-danger" id="delete-menu-item" style="display: none;">Excluir</button>
+                </div>
+            </form>
+        </div>
+    </div>
+
+    <div class="modal" id="admin-modal">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h3>Nova Conta Admin</h3>
+                <span class="close" id="close-admin-modal">&times;</span>
+            </div>
+            <form id="admin-form">
+                <div class="form-group">
+                    <label for="admin-email">Email:</label>
+                    <input type="email" id="admin-email" required>
+                </div>
+                <div class="form-group">
+                    <label for="admin-password">Senha:</label>
+                    <input type="password" id="admin-password" required>
+                </div>
+                <div class="form-group">
+                    <label for="admin-confirm-password">Confirmar Senha:</label>
+                    <input type="password" id="admin-confirm-password" required>
+                </div>
+                <div class="modal-actions">
+                    <button type="button" class="btn btn-secondary" id="cancel-admin">Cancelar</button>
+                    <button type="submit" class="btn btn-primary">Criar Conta</button>
+                </div>
+            </form>
+        </div>
+    </div>
+
+    <!-- Order Detail Modal -->
+    <div class="modal" id="order-detail-modal">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h3>Detalhes do Pedido</h3>
+                <span class="close" id="close-order-modal">&times;</span>
+            </div>
+            <div id="order-detail-content">
+                <!-- Conteúdo será inserido dinamicamente -->
+            </div>
+        </div>
+    </div>
+
+    <script src="assets/js/pages/adm/adm.js"></script>
+</body>
+
+</html>

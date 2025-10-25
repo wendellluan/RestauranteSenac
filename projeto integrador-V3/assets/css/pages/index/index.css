@@ -1,0 +1,7 @@
+@import '../../global/global.css';
+
+@import '../index/partials/header.css';
+@import '../index/partials/body.css';
+@import '../index/partials/form.css';
+@import '../index/partials/loginApps.css';
+@import '../index/partials/semLogin.css';

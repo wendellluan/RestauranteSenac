@@ -1,0 +1,39 @@
+/* Caixa central imitando celular pela tag <main>*/
+.phone {
+width: 100%;
+max-width: var(--container-width);
+background: #222;
+border-radius: 34px;
+padding: 28px 22px;
+box-shadow: 0 10px 30px rgba(0, 0, 0, 0.5);
+}
+
+/*Botão principal laranja*/
+button.primario {
+background: var(--orange);
+padding: 16px;
+border-radius: 20px;
+border: none;
+font-size: 18px;
+font-weight: 700;
+color: #fff;
+text-transform: uppercase;
+cursor: pointer;
+transition: 0.2s ease;
+}
+
+button.primario:hover {
+background: #e47926;
+}
+
+/*Input padrão */
+.field {
+background: var(--muted-gray);
+border-radius: 18px;
+padding: 14px 16px;
+font-size: 16px;
+color: #111;
+border: none;
+outline: none;
+width: 100%;
+}

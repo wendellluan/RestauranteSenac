@@ -1,0 +1,9 @@
+div.loginApps {
+    display: flex;
+    justify-content: center;
+}
+
+img.loginApp{
+    width: 14%;
+    margin: 10px
+}
